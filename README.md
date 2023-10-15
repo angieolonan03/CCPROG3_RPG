@@ -5,8 +5,7 @@
 3. Purpose
 4. Key Features
 5. Intended Audience
-6. Descriptions of Endpoints and Methods
-7. Examples and Code Snippets
+6. Examples and Code Snippets
 
 # OVERVIEW AND INTRODUCTION
 The Pokemon Game (Major Course Output) API is a Java-based library that enables developers to create text-based Pokemon games. It provides a set of classes and methods for managing in-game activities, including creature interactions, inventory management, area exploration, and creature evolution. With an intuitive design and comprehensive functionalities, the API allows users to easily create interactive Pokemon game experiences.
@@ -31,7 +30,5 @@ The purpose of the Pokemon Game (Major Course Output) API is to simplify the dev
 # INTENDED AUDIENCE:
 The Pokemon Game (Major Course Output) API is primarily designed for game developers, hobbyists, and enthusiasts interested in creating text-based Pokemon games. It is suitable for individuals with a fundamental understanding of Java programming and a basic knowledge of game development concepts. Users should be familiar with object-oriented programming principles and have a grasp of key gaming terminology such as creatures, evolution, inventory, and gameplay mechanics.
 
-# Descriptions of Endpoints and Methods
-### 1. Inventory System
-### 2. Area Exploration
-### 3. Evolution
+# Examples and Code Snippets
+
