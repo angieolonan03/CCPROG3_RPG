@@ -37,7 +37,7 @@ public class PokemonGame {
     
             while (true) {
                 System.out.println("✦•······················•✦•······················•✦");
-                System.out.println("\n▀▄▀▄▀▄ 🄼 🄰 🄸 🄽 🄼 🄴 🄽 🅄 ▀▄▀▄▀▄\n");
+                System.out.println("\nMain Menu\n");
                 System.out.println("1: View Inventory");
                 System.out.println("2: Explore Area");
                 System.out.println("3: Evolve Creature");
