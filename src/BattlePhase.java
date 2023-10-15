@@ -78,7 +78,7 @@ public class BattlePhase {
     */
     private void displayBattleStatus() {
         System.out.println("\nBattle Status:");
-        System.out.println(userCreature.getName() + " (Health: " + userCreature.getHealth() + ")");
+        System.out.println(currentInventory.getActiveCreature().getName() + " (Health: " + currentInventory.getActiveCreature().getHealth() + ")");
         System.out.println(enemyCreature.getName() + " (Health: " + enemyCreature.getHealth() + ")");
     }
 
