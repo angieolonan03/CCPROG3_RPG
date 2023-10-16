@@ -29,6 +29,3 @@ The purpose of the Pokemon Game (Major Course Output) API is to simplify the dev
 
 # INTENDED AUDIENCE:
 The Pokemon Game (Major Course Output) API is primarily designed for game developers, hobbyists, and enthusiasts interested in creating text-based Pokemon games. It is suitable for individuals with a fundamental understanding of Java programming and a basic knowledge of game development concepts. Users should be familiar with object-oriented programming principles and have a grasp of key gaming terminology such as creatures, evolution, inventory, and gameplay mechanics.
-
-# Examples and Code Snippets
-
