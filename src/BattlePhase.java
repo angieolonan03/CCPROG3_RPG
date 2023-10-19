@@ -5,7 +5,7 @@ public class BattlePhase {
     private Creature userCreature;
     private Creature enemyCreature;
     private Inventory currentInventory;
-    private int maxActions = 3; // Max number of actions per battle
+    private int maxActions = 3; // max actions
     private Random random = new Random();
 
     public BattlePhase(Creature activeCreature, Creature enemyCreature, Inventory currentInventory){
