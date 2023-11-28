@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class BattlePhase {
-    private Creature userCreature;
-    private Creature enemyCreature;
+    Creature userCreature;
+    Creature enemyCreature;
     private Inventory currentInventory;
-    private int maxActions = 3; // max actions
+    private int maxActions = 3; // Max number of actions per battle
     private Random random = new Random();
 
     public BattlePhase(Creature activeCreature, Creature enemyCreature, Inventory currentInventory){
@@ -19,7 +20,7 @@ public class BattlePhase {
     *
     * @param  enemyCreature  the enemy creature to battle against
     */
-    public void beginBattle(Creature enemyCreature) {
+    public void beginBattle(Creature enemyCreature, BattlePhaseGUI battleGUI) {
         if(enemyCreature != null){
             System.out.println("\nLet the Battle begin!");
             
@@ -89,7 +90,7 @@ public class BattlePhase {
     * @param  attacker  the creature performing the attack
     * @param  defender  the creature being attacked
     */
-    private void performAttack(Creature attacker, Creature defender){
+    public void performAttack(Creature attacker, Creature defender){
         int damage = calculateUserDamage((attacker), defender);
 
         defender.setHealth(defender.getHealth() - damage);
@@ -109,32 +110,33 @@ public class BattlePhase {
     * @param  currentInventory  the user's current inventory
     */
     public void performSwap(Inventory currentInventory) {
-        // Get the list of creatures in the user's inventory
-        ArrayList<Creature> inventoryCreatures = this.currentInventory.getAllCreatures();
+        int optionNumber = 1;
+        List<Creature> availableCreatures = new ArrayList<>();
     
-        // Check if there are creatures available for swapping
-        if (inventoryCreatures.isEmpty()) {
-            System.out.println("You cannot swap creatures as there are no other creatures in your inventory.");
+        for (Creature creature : currentInventory.getAllCreatures()) {
+            if (!creature.equals(currentInventory.getActiveCreature())) {
+                availableCreatures.add(creature);
+                System.out.println("[" + optionNumber + "] " + creature.getName());
+                optionNumber++;
+            }
+        }
+    
+        if (availableCreatures.isEmpty()) {
+            System.out.println("\nNo other creatures available for swapping.");
             return;
         }
     
-        // Display the available swap options
-        System.out.print("Choose a creature to swap with: ");
-        for (int i = 0; i < inventoryCreatures.size(); i++) {
-            Creature creature = inventoryCreatures.get(i);
-            System.out.println("[" + (i + 1) + "] " + creature.getName());
+        int choice = userInput.getUserChoice(1, optionNumber - 1);
+    
+        if (choice >= 1 && choice <= availableCreatures.size()) {
+            Creature newActiveCreature = availableCreatures.get(choice - 1);
+            System.out.println("\nYou selected " + newActiveCreature.getName() + " as your new active creature.");
+            
+            // Update the active creature in the currentInventory
+            currentInventory.setActiveCreature(newActiveCreature);
+        } else {
+            System.out.println("\nInvalid choice. Please select a valid option.");
         }
-    
-        // Prompt the user to select a creature to swap with
-        int userChoice = userInput.getUserChoice(1, inventoryCreatures.size());
-    
-        // Get the selected creature from the swap options
-        Creature selectedCreature = inventoryCreatures.get(userChoice - 1);
-    
-        // Swap the active creature with the selected creature
-        this.currentInventory.setActiveCreature(selectedCreature);
-    
-        System.out.println("You swapped your active creature with " + selectedCreature.getName() + ".");
     }
 
 // -----------------------------PERFORM CATCH-----------------------------

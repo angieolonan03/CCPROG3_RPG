@@ -3,8 +3,9 @@ import java.util.Random;
 public class Creature {
     private String name, type, family;
     private int evolutionLevel, health;
+    private String imagePath;
 
-    public Creature(String name, String type, String family, int evolutionLevel, int health){
+    public Creature(String name, String type, String family, int evolutionLevel, int health, String imagePath){
         this.name = name;
         this.type = type;
         this.family = family;
@@ -15,6 +16,7 @@ public class Creature {
             this.evolutionLevel = 1;
         }
         this.health = 100;
+        this.imagePath = imagePath;
     }
 
     /**
@@ -101,5 +103,14 @@ public class Creature {
         Random random = new Random();
         int randomIndex = random.nextInt(creatures.size());
         return creatures.get(randomIndex);
+    }
+
+    /**
+     * Retrieves the image path.
+     *
+     * @return the image path
+     */
+    public String getImagePath() {
+        return imagePath;
     }
 }
